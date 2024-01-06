@@ -81,6 +81,8 @@ void CommandLineParser::init()
 
     m_parser.addOption(QCommandLineOption("session-type", "Startup with given session type", "type")); // see StartupScenario::sessionTypeTromString
 
+    m_parser.addOption(QCommandLineOption("nosplash", "Prevent showing the splash screen"));
+
     // Converter mode
     m_parser.addOption(QCommandLineOption({ "r", "image-resolution" }, "Set output resolution for image export", "DPI"));
     m_parser.addOption(QCommandLineOption({ "j", "job" }, "Process a conversion job", "file"));
@@ -478,6 +480,10 @@ void CommandLineParser::parse(int argc, char** argv)
 
         if (m_parser.isSet("score-display-name-override")) {
             m_options.startup.scoreDisplayNameOverride = m_parser.value("score-display-name-override");
+        }
+
+        if (m_parser.isSet("nosplash")) {
+            m_options.startup.nosplash = true;
         }
     }
 }

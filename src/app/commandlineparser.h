@@ -89,6 +89,7 @@ public:
             std::optional<std::string> type;
             std::optional<QUrl> scoreUrl;
             std::optional<QString> scoreDisplayNameOverride;
+            std::optional<bool> nosplash;
         } startup;
     };
 

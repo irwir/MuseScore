@@ -165,7 +165,7 @@ int App::run(int argc, char** argv)
 
 #ifdef MUE_BUILD_APPSHELL_MODULE
     SplashScreen* splashScreen = nullptr;
-    if (runMode == framework::IApplication::RunMode::GuiApp) {
+    if (runMode == framework::IApplication::RunMode::GuiApp && !m_options.startup.nosplash) {
         if (multiInstancesProvider()->isMainInstance()) {
             splashScreen = new SplashScreen(SplashScreen::Default);
         } else {
